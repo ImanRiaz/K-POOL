@@ -46,7 +46,7 @@ const Dashboard = () => {
                     <Link to="/find-ride" className="px-6 py-2 bg-white text-primary rounded-lg font-semibold hover:bg-gray-100 transition">
                         Find a Ride
                     </Link>
-                    {user.roles.includes('ROLE_DRIVER') && (
+                    {user.roles && user.roles.includes('ROLE_DRIVER') && (
                         <Link to="/offer-ride" className="px-6 py-2 bg-indigo-800 text-white border border-indigo-400 rounded-lg font-semibold hover:bg-indigo-700 transition">
                             Offer a Ride
                         </Link>
@@ -88,7 +88,7 @@ const Dashboard = () => {
             </div>
 
             {/* Driver Section (If Driver) */}
-            {user.roles.includes('ROLE_DRIVER') && (
+            {user.roles && user.roles.includes('ROLE_DRIVER') && (
                 <div className="pt-8 border-t">
                     <h2 className="text-xl font-bold mb-4 text-gray-800">My Offered Rides</h2>
                     <p className="text-gray-500 italic">To view your offered rides, please use the "Find Ride" search for now. (Feature coming in next update)</p>

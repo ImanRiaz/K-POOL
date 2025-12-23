@@ -22,7 +22,7 @@ const Navbar = () => {
 
                     <div className="flex items-center space-x-4">
                         <Link to="/find-ride" className="hover:text-primary transition">Find Ride</Link>
-                        {user.roles.includes('ROLE_DRIVER') && (
+                        {user.roles && user.roles.includes('ROLE_DRIVER') && (
                             <Link to="/offer-ride" className="hover:text-primary transition">Offer Ride</Link>
                         )}
                         <Link to="/profile" className="hover:text-primary transition">Profile</Link>
@@ -30,7 +30,7 @@ const Navbar = () => {
                         <div className="border-l pl-4 ml-4 flex items-center gap-3">
                             <div className="text-sm text-right hidden md:block">
                                 <div className="font-medium text-gray-900">{user.fullName}</div>
-                                <div className="text-xs text-gray-500 uppercase">{user.roles[0]?.replace('ROLE_', '')}</div>
+                                <div className="text-xs text-gray-500 uppercase">{user.roles?.[0]?.replace('ROLE_', '')}</div>
                             </div>
                             <button
                                 onClick={handleLogout}
